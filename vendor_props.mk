@@ -47,6 +47,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=cherokee
 
+# Camera
+PRODUCT_PRODUCT_PROPERTIES += \
+   persist.camera.HAL3.enabled=1
+
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=384m \
