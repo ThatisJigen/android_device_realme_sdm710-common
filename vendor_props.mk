@@ -90,19 +90,58 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.callstack=1 \
-    debug.egl.hw=0 \
     debug.mdpcomp.logs=0 \
     debug.sf.hw=0 \
-    debug.sf.latch_unsignaled=1 \
+    debug.sf.latch_unsignaled=0 \
     debug.sf.disable_backpressure=1 \
+    debug.sf.enable_gl_backpressure=1 \
+    debug.sf.early_phase_offset_ns=1500000 \
+    debug.sf.early_app_phase_offset_ns=1500000 \
+    debug.sf.early_gl_phase_offset_ns=3000000 \
+    debug.sf.early_gl_app_phase_offset_ns=15000000 \
+    debug.cpurend.vsync=false \
     persist.sys.sf.color_saturation=1.0 \
+    persist.hwc.enable_vds=1 \
     ro.opengles.version=196610 \
+    ro.qualcomm.cabl=0 \
+    vendor.display.disable_skip_validate=1 \
+    vendor.gralloc.enable_fb_ubwc=1 \
+    vendor.video.disable.ubwc=1 \
+    vendor.display.enable_default_color_mode=0 \
+    video.disable.ubwc=1 \
     vendor.gralloc.disable_ubwc=0
 
+# Rendering
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.egl.hw=0 \
+    debug.enable.sglscale=1 \
+    debug.sf.disable_hwc=0 \
+    debug.sf.gpu_comp_tiling=1 \
+    debug.sf.recomputecrop=0 \
+    persist.hwc.ptor.enable=true
+
+# FIFO scheduling for UI
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.use_fifo_ui=1
+
+# Fling
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.min.fling_velocity=160 \
+    ro.max.fling_velocity=20000
+
+# SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.has_wide_color_display=true \
+    ro.surface_flinger.has_HDR_display=true \
+    ro.surface_flinger.wcg_composition_dataspace=143261696 \
+    ro.surface_flinger.set_idle_timer_ms=4000 \
+    ro.surface_flinger.set_touch_timer_ms=4000 \
+    ro.surface_flinger.set_display_power_timer_ms=1000 \
+    ro.surface_flinger.use_smart_90_for_video=true \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=2 \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.max_virtual_display_dimension=4096 \
+    ro.surface_flinger.protected_contents=true \
     ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
     ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 
